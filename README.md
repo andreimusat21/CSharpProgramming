@@ -28,4 +28,18 @@ Used for
 > I/O-bound needs (such as requesting data from a network, accessing a database, or reading and writing to a file system)
 > CPU-bound code, such as performing an expensive calculation
 
-https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap
+Task-based Asynchronous Pattern (TAP): https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap
+
+Download data from a web service:
+
+private readonly HttpClient _httpClient = new HttpClient();
+
+downloadButton.Clicked += async (o, e) =>
+{
+    // This line will yield control to the UI as the request
+    // from the web service is happening.
+    //
+    // The UI thread is now free to perform other work.
+    var stringData = await _httpClient.GetStringAsync(URL);
+    DoSomethingWithData(stringData);
+};
