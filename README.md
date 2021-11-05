@@ -23,7 +23,7 @@
 
 
 ## Programming concepts
-</details>
+
 ### Asynchronous programming
 Used for
 > I/O-bound needs (such as requesting data from a network, accessing a database, or reading and writing to a file system)
@@ -44,4 +44,4 @@ Download data from a web service:
         var stringData = await _httpClient.GetStringAsync(URL);
         DoSomethingWithData(stringData);
     };
-</details>
+
